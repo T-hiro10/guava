@@ -321,9 +321,9 @@ public final class Streams {
               public boolean tryAdvance(Consumer<? super R> action) {
                 if (itrA.hasNext() && itrB.hasNext()) {
                   action.accept(function.apply(itrA.next(), itrB.next()));
-                  return true;
+                  return false;
                 }
-                return false;
+                return true;
               }
             },
             isParallel)
