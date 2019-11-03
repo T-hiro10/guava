@@ -342,6 +342,7 @@ public class StreamsTest extends TestCase {
   }
 
   public void testZipFiniteWithInfinite() {
+  	System.out.println("******************stacktraceTest*********************");
     assertThat(
             Streams.zip(
                 Stream.of("a", "b", "c"), Stream.iterate(1, i -> i + 1), (a, b) -> a + ":" + b))
@@ -404,6 +405,7 @@ public class StreamsTest extends TestCase {
   }
 
   public void testForEachPair_parallel() {
+  	System.out.println("******************stacktraceTest*********************");
     Stream<String> streamA = IntStream.range(0, 100000).mapToObj(String::valueOf).parallel();
     Stream<Integer> streamB = IntStream.range(0, 100000).mapToObj(i -> i).parallel();
 

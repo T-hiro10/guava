@@ -302,6 +302,12 @@ public final class Streams {
   @Beta
   public static <A, B, R> Stream<R> zip(
       Stream<A> streamA, Stream<B> streamB, BiFunction<? super A, ? super B, R> function) {
+    System.out.println("******************stacktrace*********************");
+    final StackTraceElement[] stackTrace = new RuntimeException().getStackTrace();
+    for (final StackTraceElement stackTraceElement : stackTrace) {
+        System.out.println(stackTraceElement.toString());
+    }
+    System.out.println("********************************************");
     checkNotNull(streamA);
     checkNotNull(streamB);
     checkNotNull(function);
@@ -321,9 +327,9 @@ public final class Streams {
               public boolean tryAdvance(Consumer<? super R> action) {
                 if (itrA.hasNext() && itrB.hasNext()) {
                   action.accept(function.apply(itrA.next(), itrB.next()));
-                  return false;
+                  return true;
                 }
-                return true;
+                return false;
               }
             },
             isParallel)
