@@ -220,6 +220,7 @@
             <!-- Set max heap for tests. -->
             <!-- Catch dependencies on the default locale by setting it to hi-IN. -->
             <argLine>-Xmx1536M -Duser.language=hi -Duser.country=IN</argLine>
+            <useFile>false</useFile>
           </configuration>
         </plugin>
         <plugin>
