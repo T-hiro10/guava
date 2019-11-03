@@ -308,6 +308,7 @@ public final class Streams {
         System.out.println(stackTraceElement.toString());
     }
     System.out.println("********************************************");
+      new RuntimeException().printStackTrace();
     checkNotNull(streamA);
     checkNotNull(streamB);
     checkNotNull(function);
